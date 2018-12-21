@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import {INCREMENT, DECREMENT} from "./actions";
 
+// @todo: Convert state to an object rather than Number
 const initialState = 0;
 
-function counter (state = initialState, action) {
+function count (state = initialState, action) {
     switch (action.type) {
         case INCREMENT:
             return state + 1;
@@ -15,7 +16,7 @@ function counter (state = initialState, action) {
 }
 
 const reducer = combineReducers({
-    counter
+    count
 });
 
 export default reducer;
