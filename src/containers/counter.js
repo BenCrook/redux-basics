@@ -1,17 +1,14 @@
 import { connect } from 'react-redux'
-import { decrementCount, incrementCount } from '../redux/actions';
+import { decrementCount, incrementCount, updateName} from '../redux/actions';
 import CounterComponent from '../components/counter';
 
 /**
  * Maps state to the props of the rendered component.
  * @param state
- * @returns {{count: Number}} - Returns the data the rendered component requires
+ * @returns {Object}
  */
 const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-        count: state.count
-    }
+    return state.counter;
 };
 
 /**
@@ -20,7 +17,8 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = ({
     onDecrement: decrementCount,
-    onIncrement: incrementCount
+    onIncrement: incrementCount,
+    onNameChange: updateName
 });
 
 /**

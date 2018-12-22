@@ -1,22 +1,28 @@
 import { combineReducers } from 'redux';
-import {INCREMENT, DECREMENT} from "./actions";
+import {INCREMENT, DECREMENT, UPDATE_NAME} from "./actions";
 
 // @todo: Convert state to an object rather than Number
-const initialState = 0;
+const initialState = {
+    count: 0,
+    name: ''
+};
 
-function count (state = initialState, action) {
+const counter = (state = initialState, action) => {
     switch (action.type) {
         case INCREMENT:
-            return state + 1;
+            return {...state, count: state.count + 1};
         case DECREMENT:
-            return state - 1;
+            return {...state, count: state.count - 1};
+        case UPDATE_NAME:
+            const updatedname = action.name.length ? action.name : initialState.name;
+            return {...state, name: updatedname};
         default:
             return state;
     }
-}
+};
 
 const reducer = combineReducers({
-    count
+    counter
 });
 
 export default reducer;
