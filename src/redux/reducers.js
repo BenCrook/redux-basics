@@ -14,8 +14,7 @@ const counter = (state = initialState, action) => {
         case DECREMENT:
             return {...state, count: state.count - 1};
         case UPDATE_NAME:
-            const updatedname = action.name.length ? action.name : initialState.name;
-            return {...state, name: updatedname};
+            return {...state, name: action.name};
         default:
             return state;
     }
