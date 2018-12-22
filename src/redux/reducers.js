@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import {INCREMENT, DECREMENT, UPDATE_NAME} from "./actions";
 
-// @todo: Convert state to an object rather than Number
 const initialState = {
     count: 0,
     name: ''
