@@ -3,26 +3,26 @@
  */
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
-export const UPDATE_NAME = 'UPDATE_NAME';
+export const NAME_UPDATE = 'NAME_UPDATE';
 
 /*
  * Action creators
  */
-export const incrementCount = () => {
+export const countIncrement = () => {
     return {
         type: INCREMENT
     }
 };
 
-export const decrementCount = () => {
+export const countDecrement = () => {
     return {
         type: DECREMENT
     }
 };
 
-export const updateName = (event) => {
+export const nameUpdate = (event) => {
     return {
-        type: UPDATE_NAME,
+        type: NAME_UPDATE,
         name: event.target.value
     }
 };

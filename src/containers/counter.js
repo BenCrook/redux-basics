@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { decrementCount, incrementCount, updateName} from '../redux/actions';
+import { countDecrement, countIncrement, nameUpdate} from '../redux/actions';
 import CounterComponent from '../components/counter';
 
 /**
@@ -13,12 +13,12 @@ const mapStateToProps = (state) => {
 
 /**
  * Maps the action dispatches to the props of the rendered component.
- * @type {{onDecrement: decrementCount, onIncrement: incrementCount}}
+ * @type {{onDecrement: countDecrement, onIncrement: countIncrement}}
  */
 const mapDispatchToProps = ({
-    onDecrement: decrementCount,
-    onIncrement: incrementCount,
-    onNameChange: updateName
+    onDecrement: countDecrement,
+    onIncrement: countIncrement,
+    onNameChange: nameUpdate
 });
 
 /**
