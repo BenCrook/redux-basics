@@ -1,18 +1,11 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import {
     INCREMENT,
     DECREMENT,
-    NAME_UPDATE
+    NAME_UPDATE,
+    UI_BACKGROUND
 } from "./actions";
-
-/**
- * Sets the initial state of the app.
- * @type {{count: number, name: string}}
- */
-const initialState = {
-    count: 0,
-    name: ''
-};
+import {initialStateCounter, initialStateUI} from "./initial-state";
 
 /**
  * -----------------------
@@ -29,7 +22,7 @@ const initialState = {
  * @returns {Object} - The new state
  */
 
-const counter = (state = initialState, action) => {
+const counter = (state = initialStateCounter, action) => {
     switch (action.type) {
         case INCREMENT:
             return {
@@ -43,7 +36,20 @@ const counter = (state = initialState, action) => {
             };
         case NAME_UPDATE:
             return {
-                ...state, name: action.name
+                ...state,
+                name: action.name
+            };
+        default:
+            return state;
+    }
+};
+
+const ui = (state = initialStateUI, action) => {
+    switch (action.type) {
+        case UI_BACKGROUND:
+            return {
+                ...state,
+                background: action.color
             };
         default:
             return state;
@@ -54,7 +60,8 @@ const counter = (state = initialState, action) => {
  * Combines multiple reducers
  */
 const reducer = combineReducers({
-    counter
+    counter,
+    ui
 });
 
 
