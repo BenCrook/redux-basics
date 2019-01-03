@@ -1,36 +1,31 @@
 import React from 'react';
 
-const UIComponent = (props) => (
-    <>
-        <h2>UI HERE</h2>
+// @toDo: Rename the props so they can be CMD + Clicked back to the original function
+const UIComponent = (props) => {
+    return (
+        (
+            <>
+                <div>
+                    <h2>Full Reset</h2>
+                    <button onClick={() => props.uiReset()}>Reset UI</button>
+                </div>
 
-        <button onClick={() => props.updateBackground()}>Reset</button>
-        <button onClick={() => props.updateBackground('red')}>Change to red</button>
-        <button onClick={() => props.updateBackground('blue')}>Change to blue</button>
+                <div>
+                    <h2>Background</h2>
+                    <button onClick={() => props.updateBackground()}>Reset Background</button>
+                    <button onClick={() => props.updateBackground('red')}>Red Background</button>
+                    <button onClick={() => props.updateBackground('blue')}>Blue Background</button>
+                </div>
 
-        {/*<h2>Reset</h2>*/}
-        {/*<button>Reset All</button>*/}
-
-        {/*<h2>Popular</h2>*/}
-        {/*<button>Red/Blue</button>*/}
-        {/*<button>White/Black</button>*/}
-
-        {/*<h2>Mode</h2>*/}
-        {/*<button>Mobile</button>*/}
-        {/*<button>Tablet</button>*/}
-        {/*<button>Desktop</button>*/}
-
-        {/*<h2>BG</h2>*/}
-        {/*<button onClick={() => backgroundColor()}>Reset</button>*/}
-        {/*<button onClick={() => backgroundColor('red')}>Red</button>*/}
-        {/*<button onClick={() => backgroundColor('blue')}>Blue</button>*/}
-
-        {/*<h2>Text</h2>*/}
-        {/*<button onClick={() => textColor()}>Reset</button>*/}
-        {/*<button onClick={() => textColor('white')}>White</button>*/}
-        {/*<button onClick={() => textColor('red')}>Red</button>*/}
-        {/*<button onClick={() => textColor('blue')}>Blue</button>*/}
-    </>
-);
+                <div>
+                    <h2>Color</h2>
+                    <button onClick={() => props.updateColor()}>Reset Text</button>
+                    <button onClick={() => props.updateColor('green')}>Green Text</button>
+                    <button onClick={() => props.updateColor('red')}>Red Text</button>
+                </div>
+            </>
+        )
+    )
+};
 
 export default UIComponent;

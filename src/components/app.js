@@ -3,10 +3,6 @@ import Counter from '../containers/counter';
 import UI from '../components/ui';
 import styles from '../styling/app.module.css';
 
-/**
- * @todo: Style the app based on the values of the UI object in the store
- */
-
 const App = (props) => {
     const appStyling = {
         backgroundColor: props.background,
@@ -15,7 +11,7 @@ const App = (props) => {
 
     return (
         <div style={appStyling} className={styles.app} >
-            <UI updateBackground={props.uiBackground} />
+            <UI updateBackground={props.uiBackground} updateColor={props.uiColor} uiReset={props.uiReset} />
             <Counter/>
         </div>
     )
