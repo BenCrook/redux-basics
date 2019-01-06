@@ -11,7 +11,7 @@ const App = (props) => {
 
     return (
         <div style={appStyling} className={styles.app} >
-            <UI uiBackground={props.uiBackground} uiColor={props.uiColor} uiReset={props.uiReset} />
+            <UI uiStyleChange={props.uiStyleChange} uiReset={props.uiReset} />
             <Counter/>
         </div>
     )

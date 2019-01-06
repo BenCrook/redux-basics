@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { uiBackground, uiColor, uiReset } from "../redux/actions";
+import { uiStyleChange, uiReset } from "../redux/actions";
 import App from "../components/app";
 import "../reset.css";
 
@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 const actionCreators = {
-    uiBackground,
-    uiColor,
+    uiStyleChange,
     uiReset
 };
 

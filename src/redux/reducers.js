@@ -3,8 +3,7 @@ import {
     INCREMENT,
     DECREMENT,
     NAME_UPDATE,
-    UI_BACKGROUND,
-    UI_COLOR,
+    UI_STYLE_CHANGE,
     UI_RESET
 } from "./actions";
 import {initialStateCounter, initialStateUI} from "./initial-state";
@@ -52,15 +51,14 @@ const counter = (state = initialStateCounter, action) => {
  */
 const ui = (state = initialStateUI, action) => {
     switch (action.type) {
-        case UI_BACKGROUND:
+        case UI_STYLE_CHANGE:
+            const background = action.background ? action.background : state.background;
+            const color = action.color ? action.color : state.color;
+
             return {
                 ...state,
-                background: action.color
-            };
-        case UI_COLOR:
-            return {
-                ...state,
-                color: action.color
+                background: background,
+                color: color
             };
         case UI_RESET:
             return {
@@ -74,7 +72,8 @@ const ui = (state = initialStateUI, action) => {
 };
 
 /**
- * Combines multiple reducers
+ * Combines multiple reducers.
+ * Anything here will be added to the top level of the state. i.e state.counter and state.ui
  */
 const reducer = combineReducers({
     counter,
