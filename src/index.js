@@ -5,8 +5,30 @@ import { Provider } from 'react-redux';
 import reducer from "./redux/reducers";
 import * as serviceWorker from './serviceWorker';
 import App from './containers/app';
+import {loadState, saveState} from './local-storage';
+import throttle from 'lodash/throttle';
 
-const store = createStore(reducer);
+const persistedState = loadState();
+
+// Pass window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() as an argument to createStore
+// for debugging with Redux dev tools.
+const store = createStore(
+    reducer,
+    persistedState
+);
+
+/**
+ * Subscribe to the store so local storage gets updated programatically.
+ * State should only be stored here when required, saving state that isn't required is not efficient.
+ * Throttle is used to ensure the functions don't fire too often, mainly as JSON.parse and JSON.stringify
+ * are not very performant. 500 seems a good middle ground between performance and being too slow to save
+ * user's changes before a refresh.
+ */
+store.subscribe(throttle(() => {
+    saveState({
+        ui: store.getState().ui
+    })
+}, 500));
 
 
 /**

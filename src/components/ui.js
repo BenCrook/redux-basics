@@ -68,9 +68,6 @@ class UIComponent extends React.Component {
         const name = currentField.name;
         const value = currentField.value;
 
-        console.log(name);
-        console.log(value);
-
         // Combine previous state with the property.
         // This is required as we are updating the state programatically based
         // on the input name. For example input[name="background"] will update state.customUi.background.
