@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { uiStyleChange, uiReset } from "../redux/actions";
-import App from "../components/app";
-import "../reset.css";
+import App from "../components/app/app";
 
 /**
  * Maps state to the props of the rendered component.

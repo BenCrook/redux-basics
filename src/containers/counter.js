@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { countDecrement, countIncrement, nameUpdate} from '../redux/actions';
-import CounterComponent from '../components/counter';
+import CounterComponent from '../components/counter/counter';
 
 /**
  * Maps state to the props of the rendered component.

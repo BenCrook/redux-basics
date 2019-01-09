@@ -1,7 +1,7 @@
 import React from 'react';
-import Counter from '../containers/counter';
-import UI from '../components/ui';
-import styles from '../styling/app.module.css';
+import Counter from '../../containers/counter';
+import UI from '../ui/ui';
+import styles from './app.module.css';
 
 const App = (props) => {
     const appStyling = {
@@ -10,7 +10,7 @@ const App = (props) => {
     };
 
     return (
-        <div style={appStyling} className={styles.app} >
+        <div style={appStyling} className={styles.app}>
             <UI uiStyleChange={props.uiStyleChange} uiReset={props.uiReset} />
             <Counter/>
         </div>
