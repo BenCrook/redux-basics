@@ -1,3 +1,10 @@
-.app {
+.container {
     height: 100%;
+    padding: 20px 0;
+}
+
+.app {
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    margin: 0 auto;
+    max-width: 960px;
 }

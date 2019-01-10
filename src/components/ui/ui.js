@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../containers/button';
 
 /**
  * Array of popular themes.
@@ -88,12 +89,12 @@ class UIComponent extends React.Component {
                 const name = theme.name;
                 const props = this.props;
 
-                return <button key={name}
-                               onClick={() => props.uiStyleChange(theme.background, theme.color)}>{name}</button>
+                return <Button key={name}
+                               callback={() => props.uiStyleChange(theme.background, theme.color)}
+                               content={name} />
             })
         )
     }
-
     render() {
         return (
             <>
@@ -115,7 +116,7 @@ class UIComponent extends React.Component {
                 </div>
                 <div>
                     <h2>Full Reset</h2>
-                    <button onClick={() => this.props.uiReset()}>Reset UI</button>
+                    <Button content="Reset UI" callback={() => this.props.uiReset()} />
                 </div>
             </>
         )

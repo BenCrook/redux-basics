@@ -48,6 +48,7 @@ const counter = (state = initialStateCounter, action) => {
  * @param state
  * @param action
  * @returns {{background: string, color: string}}
+ * @toDo: Add additional properties, e.g light, dark, buttons, font-families
  */
 const ui = (state = initialStateUI, action) => {
     switch (action.type) {
@@ -57,8 +58,8 @@ const ui = (state = initialStateUI, action) => {
 
             return {
                 ...state,
-                background: background,
-                color: color
+                background,
+                color
             };
         case UI_RESET:
             return {

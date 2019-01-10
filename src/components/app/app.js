@@ -10,9 +10,11 @@ const App = (props) => {
     };
 
     return (
-        <div style={appStyling} className={styles.app}>
-            <UI uiStyleChange={props.uiStyleChange} uiReset={props.uiReset} />
-            <Counter/>
+        <div style={appStyling} className={styles.container}>
+            <div className={styles.app}>
+                <UI uiStyleChange={props.uiStyleChange} uiReset={props.uiReset} />
+                <Counter/>
+            </div>
         </div>
     )
 };
