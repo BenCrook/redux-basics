@@ -39,10 +39,12 @@ export const nameUpdate = (event) => {
     }
 };
 
-export const uiStyleChange = (background, color) => {
+export const uiStyleChange = (background, buttonBackground, buttonColor, color) => {
     return {
         type: UI_STYLE_CHANGE,
         background,
+        buttonBackground,
+        buttonColor,
         color
     }
 };

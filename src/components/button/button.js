@@ -3,12 +3,16 @@ import styles from './button.module.css';
 
 const Button = (props) => {
     const buttonStyling = {
-        background: props.color,
-        color: props.background
+        background: props.buttonBackground,
+        color: props.buttonColor
     };
 
     return (
-        <button style={buttonStyling} className={styles.button} onClick={props.callback}>{props.content}</button>
+        <button style={buttonStyling}
+                className={styles.button}
+                onClick={props.callback}>
+            {props.content}
+        </button>
     )
 };
 

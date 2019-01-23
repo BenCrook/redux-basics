@@ -1,0 +1,5 @@
+input[type="text"] {
+    min-height: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+}

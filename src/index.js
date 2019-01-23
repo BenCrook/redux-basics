@@ -8,6 +8,7 @@ import throttle from 'lodash/throttle';
 import App from './containers/app';
 import reducer from "./redux/reducers";
 import "./reset.css";
+import "./global.css";
 
 const persistedState = loadState();
 
