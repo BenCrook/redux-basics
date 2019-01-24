@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../containers/button';
 
 /**
  * Array of popular themes.
@@ -8,26 +9,36 @@ const popularThemes = [
     {
         name: 'White/Black (Default)',
         background: '#fff',
+        buttonBackground: '#000',
+        buttonColor: '#fff',
         color: '#000'
     },
     {
         name: 'Black/White',
         background: '#000',
+        buttonBackground: '#fff',
+        buttonColor: '#000',
         color: '#fff'
     },
     {
         name: 'Grey/Red',
         background: '#393e46',
+        buttonBackground: '#ff3834',
+        buttonColor: '#fff',
         color: '#ff3834'
     },
     {
         name: 'Grey/Blue',
         background: '#393e46',
+        buttonBackground: '#00adb6',
+        buttonColor: '#fff',
         color: '#00adb6'
     },
     {
         name: 'Grey/Yellow',
         background: '#393e46',
+        buttonBackground: '#fab600',
+        buttonColor: '#fff',
         color: '#fab600'
     }
 ];
@@ -43,6 +54,8 @@ class UIComponent extends React.Component {
         this.state = {
             customUi: {
                 background: '',
+                buttonBackground: '',
+                buttonColor: '',
                 color: ''
             }
         }
@@ -55,7 +68,7 @@ class UIComponent extends React.Component {
     handleCustomUiFormSubmit(event) {
         event.preventDefault();
         const state = this.state.customUi;
-        this.props.uiStyleChange(state.background, state.color);
+        this.props.uiStyleChange(state.background, state.buttonBackground, state.buttonColor, state.color);
     }
 
     /**
@@ -88,12 +101,17 @@ class UIComponent extends React.Component {
                 const name = theme.name;
                 const props = this.props;
 
-                return <button key={name}
-                               onClick={() => props.uiStyleChange(theme.background, theme.color)}>{name}</button>
+                return <Button key={name}
+                               callback={() => props.uiStyleChange(
+                                   theme.background,
+                                   theme.buttonBackground,
+                                   theme.buttonColor,
+                                   theme.color
+                               )}
+                               content={name} />
             })
         )
     }
-
     render() {
         return (
             <>
@@ -106,16 +124,26 @@ class UIComponent extends React.Component {
                     <form onSubmit={(event) => this.handleCustomUiFormSubmit(event)}>
                         <input type="text"
                                name="background"
+                               placeholder="Background Color"
+                               onChange={(event) => this.handleCustomUi(event)}/>
+                        <input type="text"
+                               name="buttonBackground"
+                               placeholder="Button Background"
+                               onChange={(event) => this.handleCustomUi(event)}/>
+                        <input type="text"
+                               name="buttonColor"
+                               placeholder="Button Color"
                                onChange={(event) => this.handleCustomUi(event)}/>
                         <input type="text"
                                name="color"
+                               placeholder="Color"
                                onChange={(event) => this.handleCustomUi(event)}/>
-                        <button type="submit">Submit</button>
+                        <Button content="Submit" type="submit" />
                     </form>
                 </div>
                 <div>
                     <h2>Full Reset</h2>
-                    <button onClick={() => this.props.uiReset()}>Reset UI</button>
+                    <Button content="Reset UI" callback={() => this.props.uiReset()} />
                 </div>
             </>
         )

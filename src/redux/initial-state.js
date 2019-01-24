@@ -13,5 +13,7 @@ export const initialStateCounter = {
  */
 export const initialStateUI = {
     background: 'white',
+    buttonBackground: 'black',
+    buttonColor: 'white',
     color: 'black'
 };

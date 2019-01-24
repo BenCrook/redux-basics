@@ -43,27 +43,38 @@ const counter = (state = initialStateCounter, action) => {
     }
 };
 
+function hasStyleChanged(action, state, styleName) {
+    return action[styleName] ? action[styleName] : state[styleName];
+}
+
 /**
  * UI reducer
  * @param state
  * @param action
  * @returns {{background: string, color: string}}
+ * @toDo: Add additional properties, e.g light, dark, buttons, font-families
  */
 const ui = (state = initialStateUI, action) => {
     switch (action.type) {
         case UI_STYLE_CHANGE:
-            const background = action.background ? action.background : state.background;
-            const color = action.color ? action.color : state.color;
+            const background = hasStyleChanged(action, state, 'background');
+            const buttonBackground = hasStyleChanged(action, state, 'buttonBackground');
+            const buttonColor = hasStyleChanged(action, state, 'buttonColor');
+            const color = hasStyleChanged(action, state, 'color');
 
             return {
                 ...state,
-                background: background,
-                color: color
+                background,
+                buttonBackground,
+                buttonColor,
+                color
             };
         case UI_RESET:
             return {
                 ...state,
                 background: initialStateUI.background,
+                buttonBackground: initialStateUI.buttonBackground,
+                buttonColor: initialStateUI.buttonColor,
                 color: initialStateUI.color
             };
         default:

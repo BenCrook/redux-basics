@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from "./redux/reducers";
 import * as serviceWorker from './serviceWorker';
-import App from './containers/app';
 import {loadState, saveState} from './local-storage';
 import throttle from 'lodash/throttle';
+import App from './containers/app';
+import reducer from "./redux/reducers";
+import "./reset.css";
+import "./global.css";
 
 const persistedState = loadState();
 

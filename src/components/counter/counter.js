@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Component responsible for rendering the counter
- * @param {Object} props - The props are passed through from mapStateToProps and mapDispatchToProps in src/containers/counter.js
+ * @param {Object} props - The props are passed through from mapStateToProps and mapDispatchToProps in the counter container
  * @returns {*}
  * @constructor
  */
